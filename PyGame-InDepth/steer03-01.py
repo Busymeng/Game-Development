@@ -1,6 +1,5 @@
-# Steering Behavior Examples
-# Wander
-# KidsCanCode 2016
+# Steering Behavior 3 - Fleeing
+
 import pygame as pg
 from random import randint, uniform
 vec = pg.math.Vector2
