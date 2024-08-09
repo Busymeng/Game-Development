@@ -1,7 +1,4 @@
-# Steering Behavior Examples
-# Seek & Approach
-# KidsCanCode 2016
-# Video lesson: https://youtu.be/g1jo_qsO5c4
+# Steering Behavior 1 - Seeking
 
 import pygame as pg
 from random import randint, uniform
