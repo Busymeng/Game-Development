@@ -1,6 +1,5 @@
-# Steering Behavior Examples
-# Wall avoid
-# KidsCanCode 2016
+# Steering Behavior 4 - Wall Avoid
+
 import pygame as pg
 from random import randint, uniform
 vec = pg.math.Vector2
@@ -20,7 +19,6 @@ DARKGRAY = (40, 40, 40)
 MOB_SIZE = 32
 MAX_SPEED = 4
 MAX_FORCE = 0.2
-# WALL_LIMIT = 50
 
 class Mob(pg.sprite.Sprite):
     def __init__(self):
@@ -34,30 +32,7 @@ class Mob(pg.sprite.Sprite):
         self.acc = vec(0, 0)
         self.rect.center = self.pos
 
-    # def avoid_walls(self):
-    #     steer = vec(0, 0)
-    #     self.desired = vec(0, 0)
-    #     near_wall = False
-    #     if self.pos.x < WALL_LIMIT:
-    #         self.desired = vec(MAX_SPEED, self.vel.y)
-    #         near_wall = True
-    #     if self.pos.x > WIDTH - WALL_LIMIT:
-    #         self.desired = vec(-MAX_SPEED, self.vel.y)
-    #         near_wall = True
-    #     if self.pos.y < WALL_LIMIT:
-    #         self.desired = vec(self.vel.x, MAX_SPEED)
-    #         near_wall = True
-    #     if self.pos.y > HEIGHT - WALL_LIMIT:
-    #         self.desired = vec(self.vel.x, -MAX_SPEED)
-    #         near_wall = True
-    #     if near_wall:
-    #         steer = (self.desired - self.vel)
-    #         if steer.length() > MAX_FORCE:
-    #             steer.scale_to_length(MAX_FORCE)
-    #     return steer
-
     def update(self):
-        # self.acc = self.avoid_walls()
         # equations of motion
         self.vel += self.acc
         if self.acc.length() == 0:
@@ -79,11 +54,7 @@ class Mob(pg.sprite.Sprite):
         scale = 25
         # vel
         pg.draw.line(screen, GREEN, self.pos, (self.pos + self.vel * scale), 5)
-        # # desired
-        # pg.draw.line(screen, RED, self.pos, (self.pos + self.desired * scale), 5)
-        # # limits
-        # r = pg.Rect(WALL_LIMIT, WALL_LIMIT, WIDTH - WALL_LIMIT * 2, HEIGHT - WALL_LIMIT * 2)
-        # pg.draw.rect(screen, WHITE, r, 1)
+       
 
 pg.init()
 screen = pg.display.set_mode((WIDTH, HEIGHT))
